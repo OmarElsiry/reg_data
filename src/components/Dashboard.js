@@ -32,13 +32,6 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
-      {/* Header */}
-      <div className="dashboard-header">
-        <div className="header-content">
-          <h1>🏢 منصة حجز الوحدات السكنية</h1>
-          <p className="subtitle">الطرح الثاني - بيانات شاملة لجميع المشاريع والمدن</p>
-        </div>
-      </div>
 
       {/* Important Note */}
       <div className="important-note">
