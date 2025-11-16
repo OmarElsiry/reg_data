@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import HousingTable from './components/HousingTable';
+import BuildingsTable from './components/BuildingsTable';
 import Conditions from './components/Conditions';
 import { housingData } from './data/housingData';
 
@@ -47,6 +48,12 @@ function App() {
           مشاريع أخرى
         </button>
         <button 
+          className={`tab-button ${activeTab === 'buildings' ? 'active' : ''}`}
+          onClick={() => handleTabChange('buildings')}
+        >
+          العمارات والشقق
+        </button>
+        <button 
           className={`tab-button ${activeTab === 'conditions' ? 'active' : ''}`}
           onClick={() => handleTabChange('conditions')}
         >
@@ -56,6 +63,8 @@ function App() {
 
       {activeTab === 'conditions' ? (
         <Conditions />
+      ) : activeTab === 'buildings' ? (
+        <BuildingsTable activeTab={activeTab} />
       ) : (
         <HousingTable activeTab={activeTab} data={housingData} />
       )}
