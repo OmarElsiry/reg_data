@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
 import HousingTable from './components/HousingTable';
-import BuildingsTable from './components/BuildingsTable';
 import Conditions from './components/Conditions';
+import BuildingsTable from './components/BuildingsTable';
+import DetailedProjects from './components/DetailedProjects';
 import { housingData } from './data/housingData';
 
 function App() {
@@ -27,25 +28,13 @@ function App() {
           className={`tab-button ${activeTab === 'all' ? 'active' : ''}`}
           onClick={() => handleTabChange('all')}
         >
-          كل المشاريع
+          جميع المشاريع
         </button>
         <button 
-          className={`tab-button ${activeTab === 'zilal' ? 'active' : ''}`}
-          onClick={() => handleTabChange('zilal')}
+          className={`tab-button ${activeTab === 'conditions' ? 'active' : ''}`}
+          onClick={() => handleTabChange('conditions')}
         >
-          مشروع ظلال
-        </button>
-        <button 
-          className={`tab-button ${activeTab === 'dyarana' ? 'active' : ''}`}
-          onClick={() => handleTabChange('dyarana')}
-        >
-          مشروع ديارنا
-        </button>
-        <button 
-          className={`tab-button ${activeTab === 'others' ? 'active' : ''}`}
-          onClick={() => handleTabChange('others')}
-        >
-          مشاريع أخرى
+          الشروط
         </button>
         <button 
           className={`tab-button ${activeTab === 'buildings' ? 'active' : ''}`}
@@ -54,10 +43,10 @@ function App() {
           العمارات والشقق
         </button>
         <button 
-          className={`tab-button ${activeTab === 'conditions' ? 'active' : ''}`}
-          onClick={() => handleTabChange('conditions')}
+          className={`tab-button ${activeTab === 'detailed' ? 'active' : ''}`}
+          onClick={() => handleTabChange('detailed')}
         >
-          الشروط
+          المشاريع المفصلة
         </button>
       </div>
 
@@ -65,6 +54,8 @@ function App() {
         <Conditions />
       ) : activeTab === 'buildings' ? (
         <BuildingsTable activeTab={activeTab} />
+      ) : activeTab === 'detailed' ? (
+        <DetailedProjects />
       ) : (
         <HousingTable activeTab={activeTab} data={housingData} />
       )}
