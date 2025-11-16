@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import HousingTable from './components/HousingTable';
 import Conditions from './components/Conditions';
@@ -6,7 +6,6 @@ import { housingData } from './data/housingData';
 
 function App() {
   const [activeTab, setActiveTab] = useState('all');
-  const [filteredData, setFilteredData] = useState(housingData);
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
