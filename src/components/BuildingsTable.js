@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './BuildingsTable.css';
-import { buildingDetails } from '../data/apartmentsData';
+import { allBuildingsData } from '../data/buildingsComprehensive';
 
 const BuildingsTable = ({ activeTab }) => {
   const [expandedBuilding, setExpandedBuilding] = useState(null);
@@ -8,14 +8,13 @@ const BuildingsTable = ({ activeTab }) => {
   const [projectFilter, setProjectFilter] = useState('');
 
   // Get unique projects
-  const projects = [...new Set(buildingDetails.map(b => b.project))].sort();
+  const projects = [...new Set(allBuildingsData.map(b => b.project))].sort();
 
   // Filter buildings
-  const filteredBuildings = buildingDetails.filter(building => {
+  const filteredBuildings = allBuildingsData.filter(building => {
     const searchMatch = 
       building.project.toLowerCase().includes(searchText.toLowerCase()) ||
-      building.city.toLowerCase().includes(searchText.toLowerCase()) ||
-      building.buildingName.toLowerCase().includes(searchText.toLowerCase());
+      building.city.toLowerCase().includes(searchText.toLowerCase());
     
     const projectMatch = !projectFilter || building.project === projectFilter;
     
@@ -55,21 +54,21 @@ const BuildingsTable = ({ activeTab }) => {
             >
               <div className="building-info">
                 <h3>{building.project}</h3>
-                <p className="building-name">{building.buildingName}</p>
-                <p className="building-code">الكود: {building.buildingCode}</p>
+                <p className="building-city">{building.city}</p>
+                <p className="building-code">القسم: {building.section}</p>
               </div>
               <div className="building-stats">
                 <div className="stat">
-                  <span className="label">الوحدات</span>
-                  <span className="value">{building.totalUnits}</span>
+                  <span className="label">عدد الشقق</span>
+                  <span className="value">{building.units}</span>
                 </div>
                 <div className="stat">
-                  <span className="label">المساحة الإجمالية</span>
-                  <span className="value">{building.totalArea} م²</span>
+                  <span className="label">سعر المتر</span>
+                  <span className="value">{building.pricePerMeter.toLocaleString('ar-EG')} ج.م</span>
                 </div>
                 <div className="stat">
-                  <span className="label">السعر الإجمالي</span>
-                  <span className="value">{building.totalPrice.toLocaleString('ar-EG')} ج.م</span>
+                  <span className="label">جدية الحجز</span>
+                  <span className="value">{building.deposit.toLocaleString('ar-EG')} ج.م</span>
                 </div>
               </div>
               <div className="expand-icon">
@@ -84,21 +83,21 @@ const BuildingsTable = ({ activeTab }) => {
                     <tr>
                       <th>الدور</th>
                       <th>المساحة (م²)</th>
-                      <th>الغرف</th>
-                      <th>الحمامات</th>
                       <th>السعر (ج.م)</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {building.apartments.map((apt, idx) => (
-                      <tr key={idx}>
-                        <td>{apt.floor}</td>
-                        <td>{apt.area}</td>
-                        <td>{apt.rooms}</td>
-                        <td>{apt.bathrooms}</td>
-                        <td>{apt.price.toLocaleString('ar-EG')}</td>
-                      </tr>
-                    ))}
+                    {building.areas.map((area, idx) => {
+                      const floorNames = ['دور أرضي', 'دور مكرر', 'دور أول (وسط)', 'دور أعلى'];
+                      const price = area * building.pricePerMeter;
+                      return (
+                        <tr key={idx}>
+                          <td>{floorNames[idx]}</td>
+                          <td>{area}</td>
+                          <td>{price.toLocaleString('ar-EG')}</td>
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
               </div>
