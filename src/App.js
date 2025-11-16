@@ -4,6 +4,7 @@ import HousingTable from './components/HousingTable';
 import Conditions from './components/Conditions';
 import BuildingsTable from './components/BuildingsTable';
 import DetailedProjects from './components/DetailedProjects';
+import AllCitiesStats from './components/AllCitiesStats';
 import { housingData } from './data/housingData';
 
 function App() {
@@ -48,6 +49,12 @@ function App() {
         >
           المشاريع المفصلة
         </button>
+        <button 
+          className={`tab-button ${activeTab === 'stats' ? 'active' : ''}`}
+          onClick={() => handleTabChange('stats')}
+        >
+          إحصائيات المدن
+        </button>
       </div>
 
       {activeTab === 'conditions' ? (
@@ -56,6 +63,8 @@ function App() {
         <BuildingsTable activeTab={activeTab} />
       ) : activeTab === 'detailed' ? (
         <DetailedProjects />
+      ) : activeTab === 'stats' ? (
+        <AllCitiesStats />
       ) : (
         <HousingTable activeTab={activeTab} data={housingData} />
       )}
