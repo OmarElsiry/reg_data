@@ -1,0 +1,331 @@
+.complete-data-wrapper {
+  width: 100%;
+}
+
+.search-container {
+  margin-bottom: 1.5rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: clamp(0.625rem, 2vw, 1rem);
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  font-size: clamp(0.875rem, 3vw, 1rem);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: white;
+  font-family: inherit;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+  background-color: #f0f9ff;
+}
+
+.cities-container {
+  display: grid;
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+}
+
+.city-section {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.city-section:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-light);
+}
+
+.city-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(0.75rem, 3vw, 1.25rem);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.city-header:hover {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, #1a3a7a 100%);
+}
+
+.city-header h2 {
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  margin: 0;
+  flex: 1;
+}
+
+.expand-icon {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.city-section:hover .expand-icon {
+  transform: scale(1.1);
+}
+
+.city-content {
+  padding: clamp(0.75rem, 2vw, 1.25rem);
+  background-color: var(--gray-light);
+  animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    max-height: 5000px;
+    transform: translateY(0);
+  }
+}
+
+.project-section {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: clamp(0.5rem, 2vw, 0.875rem);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.project-section:last-child {
+  margin-bottom: 0;
+}
+
+.project-section:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-light);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(0.75rem, 2vw, 1rem);
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  gap: clamp(0.5rem, 2vw, 1rem);
+  flex-wrap: wrap;
+}
+
+.project-header:hover {
+  background: linear-gradient(135deg, #e0f2fe 0%, #cffafe 100%);
+}
+
+.project-title {
+  flex: 1;
+  min-width: 150px;
+}
+
+.project-title h3 {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: var(--primary);
+  margin: 0 0 0.25rem 0;
+  font-weight: 700;
+}
+
+.region {
+  font-size: clamp(0.8rem, 2vw, 0.95rem);
+  color: #64748b;
+  margin: 0;
+  font-weight: 500;
+}
+
+.project-quick-stats {
+  display: flex;
+  gap: clamp(0.5rem, 1.5vw, 1rem);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.project-quick-stats span {
+  background-color: rgba(37, 99, 235, 0.1);
+  padding: clamp(0.375rem, 1vw, 0.625rem) clamp(0.5rem, 1.5vw, 0.875rem);
+  border-radius: 6px;
+  font-size: clamp(0.75rem, 2vw, 0.9rem);
+  font-weight: 500;
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+.project-details {
+  padding: clamp(0.75rem, 2vw, 1rem);
+  border-top: 1px solid var(--border);
+}
+
+.project-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: clamp(0.5rem, 2vw, 1rem);
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: var(--gray-light);
+  border-radius: 8px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-item .label {
+  font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+  color: #64748b;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.info-item .value {
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.units-table,
+.model-section,
+.region-section {
+  margin-bottom: 1rem;
+}
+
+.units-table h4,
+.model-section h4,
+.region-section h4 {
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  color: var(--primary);
+  margin: 0 0 0.75rem 0;
+  font-weight: 700;
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 0.5rem;
+}
+
+.model-label {
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+  color: #64748b;
+  margin: 0 0 0.5rem 0;
+  font-weight: 500;
+}
+
+.model-stats,
+.region-stats {
+  display: flex;
+  gap: clamp(0.5rem, 2vw, 1rem);
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.model-stats span,
+.region-stats span {
+  background-color: rgba(37, 99, 235, 0.1);
+  padding: clamp(0.375rem, 1vw, 0.5rem) clamp(0.5rem, 1.5vw, 0.75rem);
+  border-radius: 6px;
+  font-size: clamp(0.75rem, 2vw, 0.85rem);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 0.75rem;
+}
+
+table:last-child {
+  margin-bottom: 0;
+}
+
+table th {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  padding: clamp(0.625rem, 2vw, 0.875rem);
+  text-align: right;
+  font-weight: 600;
+  font-size: clamp(0.8rem, 2vw, 0.95rem);
+}
+
+table td {
+  padding: clamp(0.625rem, 2vw, 0.875rem);
+  border-bottom: 1px solid var(--border);
+  text-align: right;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+}
+
+table tbody tr:hover {
+  background-color: #f0f9ff;
+}
+
+table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .project-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .project-quick-stats {
+    width: 100%;
+  }
+
+  .project-info {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+
+  table th,
+  table td {
+    padding: clamp(0.5rem, 1.5vw, 0.75rem);
+    font-size: clamp(0.75rem, 2vw, 0.85rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .city-header {
+    padding: 0.625rem;
+  }
+
+  .city-header h2 {
+    font-size: 1rem;
+  }
+
+  .project-info {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 0.625rem;
+  }
+
+  .project-details {
+    padding: 0.625rem;
+  }
+
+  table {
+    font-size: 0.75rem;
+  }
+
+  table th,
+  table td {
+    padding: clamp(0.375rem, 1vw, 0.5rem);
+    font-size: 0.75rem;
+  }
+}

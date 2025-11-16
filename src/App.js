@@ -5,6 +5,7 @@ import Conditions from './components/Conditions';
 import BuildingsTable from './components/BuildingsTable';
 import DetailedProjects from './components/DetailedProjects';
 import AllCitiesStats from './components/AllCitiesStats';
+import CompleteDataView from './components/CompleteDataView';
 import { housingData } from './data/housingData';
 
 function App() {
@@ -55,6 +56,12 @@ function App() {
         >
           إحصائيات المدن
         </button>
+        <button 
+          className={`tab-button ${activeTab === 'complete' ? 'active' : ''}`}
+          onClick={() => handleTabChange('complete')}
+        >
+          البيانات الكاملة
+        </button>
       </div>
 
       {activeTab === 'conditions' ? (
@@ -65,6 +72,8 @@ function App() {
         <DetailedProjects />
       ) : activeTab === 'stats' ? (
         <AllCitiesStats />
+      ) : activeTab === 'complete' ? (
+        <CompleteDataView />
       ) : (
         <HousingTable activeTab={activeTab} data={housingData} />
       )}
