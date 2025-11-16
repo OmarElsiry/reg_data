@@ -1,70 +1,127 @@
-# Getting Started with Create React App
+# Housing Units Booking Conditions (الطرح الثاني)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern React web application for displaying and filtering housing unit booking information with detailed pricing, location, and booking conditions.
 
-## Available Scripts
+## 🚀 Live Demo
 
-In the project directory, you can run:
+**Deployed on Netlify:** https://housing-units-app.netlify.app
 
-### `npm start`
+## 📋 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Responsive Design**: Fully responsive layout that works on desktop, tablet, and mobile devices
+- **Tab Navigation**: Switch between all projects, specific projects (ظلال, ديارنا), other projects, and general conditions
+- **Advanced Filtering**: 
+  - Search by project name, city, or district
+  - Filter by project and city
+  - Price range filtering (per square meter and total unit price)
+- **Sorting**: Click column headers to sort, or use the sort dropdown with ascending/descending options
+- **RTL Support**: Full right-to-left (RTL) support for Arabic content
+- **Conditions Display**: Expandable section with general booking conditions and special notes
+- **Accessible**: High contrast mode and reduced motion support
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Tech Stack
 
-### `npm test`
+- **React 18**: UI library
+- **CSS3**: Styling with CSS variables and media queries
+- **Create React App**: Build tooling
+- **Netlify**: Deployment platform
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📁 Project Structure
 
-### `npm run build`
+```
+src/
+├── components/
+│   ├── HousingTable.js       # Main table component with filtering and sorting
+│   ├── HousingTable.css      # Table styles
+│   ├── Conditions.js         # Conditions display component
+│   └── Conditions.css        # Conditions styles
+├── data/
+│   └── housingData.js        # Housing data array
+├── App.js                    # Main app component
+├── App.css                   # Global styles
+└── index.js                  # Entry point
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🚀 Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1. Clone the repository:
+```bash
+git clone https://github.com/OmarElsiry/reg_data.git
+cd housing-units-app
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Install dependencies:
+```bash
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Start the development server:
+```bash
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The app will open at [http://localhost:3000](http://localhost:3000)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📦 Build & Deploy
 
-## Learn More
+### Build for production:
+```bash
+npm run build
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Deploy to Netlify:
+```bash
+netlify deploy --prod --dir=build
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📊 Data Structure
 
-### Code Splitting
+Each housing unit entry contains:
+- `project`: Project name
+- `city`: City location
+- `district`: District (if applicable)
+- `price`: Price per square meter (ج.م)
+- `deposit`: Booking deposit amount
+- `areaRange`: Range of unit areas in m²
+- `unitPrice`: Total unit price range
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🎨 Customization
 
-### Analyzing the Bundle Size
+### Colors
+Edit the CSS variables in `src/App.css`:
+```css
+:root {
+  --primary: #3498db;
+  --primary-dark: #2980b9;
+  --secondary: #2c3e50;
+  /* ... more variables */
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Data
+Update housing data in `src/data/housingData.js`
 
-### Making a Progressive Web App
+## 📱 Browser Support
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
 
-### Advanced Configuration
+## 📄 License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+This project is open source and available under the MIT License.
 
-### Deployment
+## 👤 Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Created by Omar Elsiry
 
-### `npm run build` fails to minify
+## 🔗 Repository
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+https://github.com/OmarElsiry/reg_data
